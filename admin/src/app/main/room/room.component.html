@@ -1,0 +1,59 @@
+<div class="app-content-body ">
+  <div class="hbox hbox-auto-xs hbox-auto-sm">
+    <!-- main -->
+    <div class="col">
+      <!-- main header -->
+      <div class="bg-light lter b-b wrapper-md">
+        <div class="row">
+          <div class="col-sm-12 col-xs-12">
+            <h1 class="m-n font-thin h3 text-black">PHÒNG BAN</h1>
+          </div>
+        </div>
+      </div>
+      <div class="wrapper-md">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="panel panel-default">
+              <div class="panel-heading font-bold">THÊM PHÒNG BAN</div>
+              <div class="panel-body">
+                <form role="form" #formRoom="ngForm">
+                  <div class="form-group">
+                    <label>Phòng ban</label>
+                    <input id="room-name" type="text" [(ngModel)]="room_name" name="fullname" class="form-control" placeholder="Nhập tên phòng ban">
+                  </div>
+                  <button type="button" (click)="addRoom()" class="btn btn-sm btn-primary">Thêm</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="panel panel-default">
+              <div class="panel-heading font-bold">DANH SÁCH PHÒNG BAN</div>
+              <div class="panel-body">
+                <table class="table table-striped m-b-none">
+                  <thead>
+                    <tr>
+                      <td>#</td>
+                      <td>Tên vị trí</td>
+                      <td>Tác vụ</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let room of list_room">
+                      <td>{{room.room_id}}</td>
+                      <td>{{room.room_name}}</td>
+                      <td>
+                        <button (click)="delRoom(room.room_id)" class="btn btn-xs btn-danger">Xóa</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- / main -->
+  </div>
+</div>
